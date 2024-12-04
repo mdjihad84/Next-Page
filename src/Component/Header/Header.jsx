@@ -28,7 +28,7 @@ const Header = () => {
           </li>
           <li>
             <NavLink
-              to="/Book"
+              to="/books"
               className={({ isActive }) => (isActive ? "active" : "default")}
             >
               Books
@@ -87,7 +87,7 @@ const Header = () => {
                     </li>
                     <li>
                       <NavLink
-                        to="/Book"
+                        to="/books"
                         className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400"
                       >
                         Books
