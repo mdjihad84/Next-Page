@@ -16,7 +16,7 @@ const Home = () => {
           A reader lives a <br className="hidden md:block" /> thousand lives{" "}
           <span className="inline-block text-blue-400">before he dies</span>
         </h2>
-        <p className="mb-6 text-gray-700">
+        <p className="lg:w-[488px] mb-6 text-sm sm:text-base md:text-lg text-gray-700">
           Books are a uniquely portable magic. Books serve to show a man that
           those original thoughts of his aren’t very new after all. The man who
           does not read good books is no better than the man who can’t.
