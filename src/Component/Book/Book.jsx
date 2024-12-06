@@ -9,11 +9,11 @@ const Book = ({ book }) => {
         <img
           src={image}
           alt="book cover"
-          className="object-cover sm:w-[27rem] w-full lg:h-56 md:h-64 xl:h-80"
+          className="object-cover h-[35rem] w-full lg:h-56 md:h-64 xl:h-80"
         />
         <div className="bg-black flex flex-col bg-opacity-75 opacity-0 hover:opacity-100 text-gray-300 absolute inset-0 transition-opacity duration-200 px-6 py-4">
-          <p className="text-2xl font-bold">{title}</p>
-          <p>{subtitle.substring(0, 45)}...</p>
+          <h4 className="text-2xl font-bold">{title}</h4>
+          <h5>{subtitle.substring(0, 45)}...</h5>
           <br />
           <p className="mt-auto">price: {price}</p>
         </div>

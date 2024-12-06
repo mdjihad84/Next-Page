@@ -8,20 +8,26 @@ import {
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
-    <div className=" px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+    <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
       <div className="relative flex items-center justify-between">
-        <NavLink to={"/"} className="inline-flex items-center">
+        {/* Logo Section */}
+        <NavLink to="/" className="inline-flex items-center">
           <BoltIcon className="h-6 w-6 text-blue-500" />
           <span className="ml-2 text-xl font-bold tracking-wide text-gray-800">
             nextPage
           </span>
         </NavLink>
-        <ul className="items-center hidden space-x-8 lg:flex font-semibold">
+
+        {/* Desktop Navigation */}
+        <ul className="items-center hidden space-x-8 lg:flex font-semisemibold">
           <li>
             <NavLink
-              to={"/"}
-              className={({ isActive }) => (isActive ? "active" : "default")}
+              to="/"
+              className={({ isActive }) =>
+                isActive ? "text-red-500 font-semibold" : "text-gray-700"
+              }
             >
               Home
             </NavLink>
@@ -29,7 +35,9 @@ const Header = () => {
           <li>
             <NavLink
               to="/books"
-              className={({ isActive }) => (isActive ? "active" : "default")}
+              className={({ isActive }) =>
+                isActive ? "text-red-500 font-semibold" : "text-gray-700"
+              }
             >
               Books
             </NavLink>
@@ -37,12 +45,15 @@ const Header = () => {
           <li>
             <NavLink
               to="/about"
-              className={({ isActive }) => (isActive ? "active" : "default")}
+              className={({ isActive }) =>
+                isActive ? "text-red-500 font-semibold" : "text-gray-700"
+              }
             >
               About
             </NavLink>
           </li>
         </ul>
+
         {/* Mobile Navbar Section */}
         <div className="lg:hidden">
           {/* Dropdown Open Button */}
@@ -53,18 +64,19 @@ const Header = () => {
           >
             <Bars3BottomRightIcon className="w-5 text-gray-600" />
           </button>
+
           {isMenuOpen && (
             <div className="absolute top-0 left-0 w-full z-10">
               <div className="p-5 bg-white border rounded shadow-sm">
                 {/* Logo & Button section */}
                 <div className="flex items-center justify-between mb-4">
                   <div>
-                    <a className="inline-flex items-center">
+                    <NavLink to="/" className="inline-flex items-center">
                       <BoltIcon className="h-6 w-6 text-blue-500" />
                       <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
                         nextPage
                       </span>
-                    </a>
+                    </NavLink>
                   </div>
                   {/* Dropdown menu close button */}
                   <div>
@@ -77,28 +89,44 @@ const Header = () => {
                     </button>
                   </div>
                 </div>
+
                 {/* Mobile Nav Items Section */}
                 <nav>
                   <ul className="space-y-4">
                     <li>
-                      <NavLink to={"/"} className="default">
+                      <NavLink
+                        to="/"
+                        className={({ isActive }) =>
+                          isActive
+                            ? "text-red-500 font-semibold"
+                            : "text-gray-700"
+                        }
+                      >
                         Home
                       </NavLink>
                     </li>
                     <li>
                       <NavLink
                         to="/books"
-                        className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400"
+                        className={({ isActive }) =>
+                          isActive
+                            ? "text-red-500 font-semibold"
+                            : "text-gray-700"
+                        }
                       >
                         Books
                       </NavLink>
                     </li>
                     <li>
                       <NavLink
-                        to={"/About"}
-                        className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400"
+                        to="/about"
+                        className={({ isActive }) =>
+                          isActive
+                            ? "text-red-500 font-semibold"
+                            : "text-gray-700"
+                        }
                       >
-                        About Us
+                        About
                       </NavLink>
                     </li>
                   </ul>
