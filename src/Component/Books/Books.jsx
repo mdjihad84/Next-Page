@@ -1,24 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useState } from "react";
+import { useLoaderData, useNavigation } from "react-router-dom";
 import Book from "../Book/Book";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 const Books = () => {
   const { books } = useLoaderData();
-  const [isLoading, setIsLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (isLoading) {
-    return <LoadingSpinner />;
+  const navigation = useNavigation();
+  if (navigation.state === "loading") {
+    return <LoadingSpinner></LoadingSpinner>;
   }
 
   // Calculate total pages
@@ -49,8 +41,7 @@ const Books = () => {
         <button
           onClick={() => handlePageChange(currentPage - 1)}
           disabled={currentPage === 1}
-          className="px-4 py-2 bg-gray-300 hover:bg-gray-400 rounded disabled:opacity-50"
-        >
+          className="px-4 py-2 bg-gray-300 hover:bg-gray-400 rounded disabled:opacity-50">
           Previous
         </button>
         {[...Array(totalPages)].map((_, index) => (
@@ -61,16 +52,14 @@ const Books = () => {
               currentPage === index + 1
                 ? "bg-blue-500 text-white"
                 : "bg-gray-300 hover:bg-gray-400"
-            }`}
-          >
+            }`}>
             {index + 1}
           </button>
         ))}
         <button
           onClick={() => handlePageChange(currentPage + 1)}
           disabled={currentPage === totalPages}
-          className="px-4 py-2 bg-gray-300 hover:bg-gray-400 rounded disabled:opacity-50"
-        >
+          className="px-4 py-2 bg-gray-300 hover:bg-gray-400 rounded disabled:opacity-50">
           Next
         </button>
       </div>

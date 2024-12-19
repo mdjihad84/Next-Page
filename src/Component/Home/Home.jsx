@@ -2,9 +2,14 @@ import React from "react";
 import Lottie from "lottie-react";
 import reader from "../../assets/reader.json";
 import { ShoppingCartIcon } from "@heroicons/react/24/solid";
-import { Link } from "react-router-dom";
+import { Link, useNavigation } from "react-router-dom";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 const Home = () => {
+  const navigation = useNavigation();
+  if (navigation.state === "loading") {
+    return <LoadingSpinner></LoadingSpinner>;
+  }
   return (
     <div className="flex flex-col items-center justify-between lg:flex-row px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
       <div className="max-w-xl">
@@ -21,16 +26,15 @@ const Home = () => {
           does not read good books is no better than the man who can’t.
         </p>
         <div className="flex flex-col items-center md:flex-row">
-          <Link to="/books" className="btn md:w-auto md:mr-4">
+          <Link to="/books" className=" md:w-auto md:mr-4">
             <div className="inline-flex items-center h-12 px-6 mb-3 font-medium text-white transition duration-200 rounded shadow-md  md:mb-0 bg-blue-400 hover:bg-blue-700 justify-center w-full">
-              <p className="mr-3">Visit Store</p>
+              <span className="mr-3">Visit Store</span>
               <ShoppingCartIcon className="w-5 text-gray-100" />
             </div>
           </Link>
           <Link
             to="/about"
-            className="inline-flex items-center font-semibold text-gray-800 transition-colors duration-200 hover:text-blue-700"
-          >
+            className="inline-flex items-center font-semibold text-gray-800 transition-colors duration-200 hover:text-blue-700">
             Learn More
           </Link>
         </div>

@@ -1,33 +1,13 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import {
   BoltIcon,
   Bars3BottomRightIcon,
   XMarkIcon,
 } from "@heroicons/react/24/solid";
-import { getStoredBook } from "../../utility/localstorage";
 
-const Header = () => {
+const Header = ({ cartCount }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [cartLength, setCartLength] = useState(0);
-
-  const updateCartLength = () => {
-    const books = getStoredBook();
-    setCartLength(books.length);
-  };
-
-  useEffect(() => {
-    // Initial load
-    updateCartLength();
-
-    // Listen for the custom event
-    window.addEventListener("cartUpdated", updateCartLength);
-
-    // Cleanup the event listener
-    return () => {
-      window.removeEventListener("cartUpdated", updateCartLength);
-    };
-  }, []);
 
   return (
     <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
@@ -67,7 +47,7 @@ const Header = () => {
                 isActive ? "text-red-500 font-semibold" : "text-gray-700"
               }>
               <div className="badge badge-primary badge-lg mr-3 text-white">
-                {cartLength}
+                {cartCount}
               </div>
               Cart
             </NavLink>
