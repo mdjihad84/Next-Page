@@ -5,6 +5,7 @@ import ErrorPage from "../Component/ErrorPage/ErrorPage";
 import Books from "../Component/Books/Books";
 import BookInfo from "../Component/BookInfo/BookInfo";
 import About from "../Component/About/About";
+import Cart from "../Component/Cart/Cart";
 
 export const router = createBrowserRouter([
   {
@@ -26,6 +27,11 @@ export const router = createBrowserRouter([
         element: <BookInfo></BookInfo>,
         loader: ({ params }) =>
           fetch(`https://api.itbook.store/1.0/books/${params.id}`),
+      },
+      {
+        path: "cart",
+        element: <Cart></Cart>,
+        loader: () => fetch("https://api.itbook.store/1.0/new"),
       },
       {
         path: "about",

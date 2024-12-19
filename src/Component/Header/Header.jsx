@@ -1,13 +1,33 @@
-import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 import {
   BoltIcon,
   Bars3BottomRightIcon,
   XMarkIcon,
 } from "@heroicons/react/24/solid";
+import { getStoredBook } from "../../utility/localstorage";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [cartLength, setCartLength] = useState(0);
+
+  const updateCartLength = () => {
+    const books = getStoredBook();
+    setCartLength(books.length);
+  };
+
+  useEffect(() => {
+    // Initial load
+    updateCartLength();
+
+    // Listen for the custom event
+    window.addEventListener("cartUpdated", updateCartLength);
+
+    // Cleanup the event listener
+    return () => {
+      window.removeEventListener("cartUpdated", updateCartLength);
+    };
+  }, []);
 
   return (
     <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
@@ -27,8 +47,7 @@ const Header = () => {
               to="/"
               className={({ isActive }) =>
                 isActive ? "text-red-500 font-semibold" : "text-gray-700"
-              }
-            >
+              }>
               Home
             </NavLink>
           </li>
@@ -37,9 +56,20 @@ const Header = () => {
               to="/books"
               className={({ isActive }) =>
                 isActive ? "text-red-500 font-semibold" : "text-gray-700"
-              }
-            >
+              }>
               Books
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/cart"
+              className={({ isActive }) =>
+                isActive ? "text-red-500 font-semibold" : "text-gray-700"
+              }>
+              <div className="badge badge-primary badge-lg mr-3 text-white">
+                {cartLength}
+              </div>
+              Cart
             </NavLink>
           </li>
           <li>
@@ -47,8 +77,7 @@ const Header = () => {
               to="/about"
               className={({ isActive }) =>
                 isActive ? "text-red-500 font-semibold" : "text-gray-700"
-              }
-            >
+              }>
               About
             </NavLink>
           </li>
@@ -60,8 +89,7 @@ const Header = () => {
           <button
             aria-label="Open Menu"
             title="Open Menu"
-            onClick={() => setIsMenuOpen(true)}
-          >
+            onClick={() => setIsMenuOpen(true)}>
             <Bars3BottomRightIcon className="w-5 text-gray-600" />
           </button>
 
@@ -83,8 +111,7 @@ const Header = () => {
                     <button
                       aria-label="Close Menu"
                       title="Close Menu"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
+                      onClick={() => setIsMenuOpen(false)}>
                       <XMarkIcon className="w-5 text-gray-600" />
                     </button>
                   </div>
@@ -100,8 +127,7 @@ const Header = () => {
                           isActive
                             ? "text-red-500 font-semibold"
                             : "text-gray-700"
-                        }
-                      >
+                        }>
                         Home
                       </NavLink>
                     </li>
@@ -112,8 +138,7 @@ const Header = () => {
                           isActive
                             ? "text-red-500 font-semibold"
                             : "text-gray-700"
-                        }
-                      >
+                        }>
                         Books
                       </NavLink>
                     </li>
@@ -124,8 +149,7 @@ const Header = () => {
                           isActive
                             ? "text-red-500 font-semibold"
                             : "text-gray-700"
-                        }
-                      >
+                        }>
                         About
                       </NavLink>
                     </li>
