@@ -5,11 +5,11 @@ import {
   useOutletContext,
 } from "react-router-dom";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
-// import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 const BookInfo = () => {
   const { addToCart } = useOutletContext();
   const [fold, setFold] = useState(true);
+  const [isAdded, setIsAdded] = useState(false);
   const bookData = useLoaderData();
   const {
     image,
@@ -29,6 +29,11 @@ const BookInfo = () => {
     return <LoadingSpinner></LoadingSpinner>;
   }
 
+  const handleAddToCart = () => {
+    addToCart(isbn13);
+    setIsAdded(true);
+  };
+
   return (
     <div className="my-container">
       <div className="flex flex-col max-w-screen-lg overflow-hidden bg-white border rounded shadow-sm lg:flex-row sm:mx-auto">
@@ -42,9 +47,13 @@ const BookInfo = () => {
         <div className="p-8 bg-white lg:p-16 lg:pl-10 lg:w-1/2">
           <div className="text-end">
             <button
-              onClick={() => addToCart(isbn13)}
-              className="btn btn-primary text-white">
-              Add to cart
+              onClick={handleAddToCart}
+              disabled={isAdded}
+              className={`btn text-white ${
+                isAdded ? "bg-gray-400 cursor-not-allowed" : "btn-primary"
+              }`}
+            >
+              {isAdded ? "Added" : "Add to Cart"}
             </button>
           </div>
           <div>
@@ -62,7 +71,8 @@ const BookInfo = () => {
               <p className="text-gray-500">{desc.substring(0, 100)}.....</p>
               <span
                 className="cursor-pointer text-blue-600"
-                onClick={() => setFold(!fold)}>
+                onClick={() => setFold(!fold)}
+              >
                 Read More
               </span>
             </>
@@ -71,7 +81,8 @@ const BookInfo = () => {
               <p className="text-gray-900">{desc}</p>
               <span
                 className="cursor-pointer text-blue-600"
-                onClick={() => setFold(!fold)}>
+                onClick={() => setFold(!fold)}
+              >
                 Read Less
               </span>
             </>

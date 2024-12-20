@@ -24,7 +24,7 @@ const App = () => {
   // Remove item from cart
   const removeFromCart = (itemId) => {
     const updatedCart = cart.filter((item) => item !== itemId);
-    setCart(updatedCart); // Update state
+    setCart(updatedCart);
   };
 
   const navigation = useNavigation();
