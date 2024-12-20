@@ -5,6 +5,8 @@ import {
   useOutletContext,
 } from "react-router-dom";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const BookInfo = () => {
   const { addToCart } = useOutletContext();
@@ -32,6 +34,15 @@ const BookInfo = () => {
   const handleAddToCart = () => {
     addToCart(isbn13);
     setIsAdded(true);
+    toast.success(`${title} added to the cart!`, {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   };
 
   return (

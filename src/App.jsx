@@ -2,6 +2,7 @@ import { Outlet, useNavigation } from "react-router-dom";
 import Header from "./Component/Header/Header";
 import Footer from "./Component/Footer/Footer";
 import LoadingSpinner from "./Component/LoadingSpinner/LoadingSpinner";
+import { ToastContainer } from "react-toastify";
 import { useEffect, useState } from "react";
 
 const App = () => {
@@ -39,6 +40,7 @@ const App = () => {
         <Outlet context={{ cart, addToCart, removeFromCart }} />
       </div>
       <Footer />
+      <ToastContainer />
     </>
   );
 };
