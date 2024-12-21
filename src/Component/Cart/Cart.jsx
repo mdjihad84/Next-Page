@@ -27,13 +27,18 @@ const Cart = () => {
       {booksInCart.length > 0 ? (
         <ul>
           {booksInCart.map((book, index) => (
-            <li key={index}>
-              <p>{book.title}</p>
-              <p>Price: {book.price}</p>
+            <div key={index} className="">
+              <img
+                src={book.image}
+                alt="book cover"
+                className="object-cover h-[35rem] w-full lg:h-56 md:h-64 xl:h-80"
+              />
+              <h4 className="text-2xl font-bold">{book.title}</h4>
+              <p className="mt-auto">price: {book.price}</p>
               <button onClick={() => removeFromCart(book.isbn13)}>
                 Remove
               </button>
-            </li>
+            </div>
           ))}
         </ul>
       ) : (

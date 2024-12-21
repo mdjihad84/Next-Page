@@ -1,28 +1,13 @@
 import { useState } from "react";
-import {
-  useLoaderData,
-  useNavigation,
-  useOutletContext,
-} from "react-router-dom";
+import { useLoaderData, useNavigation } from "react-router-dom";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 // import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 const BookInfo = () => {
-  const { addToCart } = useOutletContext();
   const [fold, setFold] = useState(true);
   const bookData = useLoaderData();
-  const {
-    image,
-    isbn13,
-    title,
-    desc,
-    authors,
-    publisher,
-    year,
-    rating,
-    url,
-    price,
-  } = bookData;
+  const { image, title, desc, authors, publisher, year, rating, url, price } =
+    bookData;
 
   const navigation = useNavigation();
   if (navigation.state === "loading") {
@@ -40,15 +25,8 @@ const BookInfo = () => {
           />
         </div>
         <div className="p-8 bg-white lg:p-16 lg:pl-10 lg:w-1/2">
-          <div className="text-end">
-            <button
-              onClick={() => addToCart(isbn13)}
-              className="btn btn-primary text-white">
-              Add to cart
-            </button>
-          </div>
           <div>
-            <p className="badge">Brand new</p>
+            <p className="badge text-white">Brand new</p>
           </div>
           <h5 className="mb-3 text-3xl font-extrabold leading-none sm:text-4xl">
             {title}
@@ -78,7 +56,7 @@ const BookInfo = () => {
           )}
 
           <div className="flex gap-5 mt-8 items-center">
-            <a href={url} target="_blank" className="btn">
+            <a href={url} target="_blank" className="btn text-white">
               Buy Now
             </a>
             <p className="items-center font-extrabold text-gray-600">

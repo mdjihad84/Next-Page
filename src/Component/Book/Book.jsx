@@ -1,23 +1,34 @@
-import { Link } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 
 const Book = ({ book }) => {
-  const { image, title, price, subtitle, isbn13 } = book;
+  const { addToCart } = useOutletContext();
+  const { image, title, price, isbn13 } = book;
   return (
-    <Link to={`/book/${isbn13}`}>
-      <div className="overflow-hidden relative transition duration-200 transform hover:-translate-y-2 rounded-lg shadow-sm lg:shadow-lg hover:shadow-2xl">
+    <div className="border border-[#eee]">
+      <Link to={`/book/${isbn13}`}>
         <img
           src={image}
           alt="book cover"
-          className="object-cover h-[35rem] w-full lg:h-56 md:h-64 xl:h-80"
+          className="object-cover h-[300px] w-full "
         />
-        <div className="bg-black flex flex-col bg-opacity-75 opacity-0 hover:opacity-100 text-gray-300 absolute inset-0 transition-opacity duration-200 px-6 py-4">
-          <h4 className="text-2xl font-bold">{title}</h4>
-          <h5>{subtitle.substring(0, 45)}...</h5>
-          <br />
-          <p className="mt-auto">price: {price}</p>
+      </Link>
+      <div className="p-3">
+        <Link to={`/book/${isbn13}`}>
+          <h4 className="text-[13px] font-semibold hover:text-blue-500">
+            {title}
+          </h4>
+        </Link>
+
+        <p className="text-blue-500 mt-1 font-semibold text-[16px]">{price}</p>
+        <div className="flex items-center justify-center">
+          <button
+            onClick={() => addToCart(isbn13)}
+            className="uppercase rounded-sm text-[11px]  h-[26px] w-full text-white mt-2 bg-blue-500">
+            Add to Cart
+          </button>
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
 

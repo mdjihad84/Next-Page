@@ -16,9 +16,19 @@ const App = () => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]); // This hook runs every time the cart state changes
 
-  // Add item to cart
+  // // Add item to cart
+  // const addToCart = (item) => {
+  //   setCart((prevCart) => [...prevCart, item]);
+  // };
+
+  // Add item to cart with duplicate check
   const addToCart = (item) => {
-    setCart((prevCart) => [...prevCart, item]);
+    if (cart.includes(item)) {
+      alert("Item is already added to the cart!");
+    } else {
+      setCart((prevCart) => [...prevCart, item]);
+      alert("Item added to the cart successfully!");
+    }
   };
 
   // Remove item from cart
