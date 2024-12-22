@@ -23,7 +23,8 @@ const Book = ({ book }) => {
         <div className="flex items-center justify-center">
           <button
             onClick={() => addToCart(isbn13)}
-            className="uppercase rounded-sm text-[11px]  h-[26px] w-full text-white mt-2 bg-blue-500">
+            className="uppercase rounded-sm text-[11px]  h-[26px] w-full text-white mt-2 bg-blue-500"
+          >
             Add to Cart
           </button>
         </div>

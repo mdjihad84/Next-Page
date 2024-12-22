@@ -27,7 +27,8 @@ const Header = ({ cartCount }) => {
               to="/"
               className={({ isActive }) =>
                 isActive ? "text-red-500 font-semibold" : "text-gray-700"
-              }>
+              }
+            >
               Home
             </NavLink>
           </li>
@@ -36,7 +37,8 @@ const Header = ({ cartCount }) => {
               to="/books"
               className={({ isActive }) =>
                 isActive ? "text-red-500 font-semibold" : "text-gray-700"
-              }>
+              }
+            >
               Books
             </NavLink>
           </li>
@@ -45,7 +47,8 @@ const Header = ({ cartCount }) => {
               to="/cart"
               className={({ isActive }) =>
                 isActive ? "text-red-500 font-semibold" : "text-gray-700"
-              }>
+              }
+            >
               <div className="badge badge-primary badge-lg mr-3 text-white">
                 {cartCount}
               </div>
@@ -57,7 +60,8 @@ const Header = ({ cartCount }) => {
               to="/about"
               className={({ isActive }) =>
                 isActive ? "text-red-500 font-semibold" : "text-gray-700"
-              }>
+              }
+            >
               About
             </NavLink>
           </li>
@@ -69,7 +73,8 @@ const Header = ({ cartCount }) => {
           <button
             aria-label="Open Menu"
             title="Open Menu"
-            onClick={() => setIsMenuOpen(true)}>
+            onClick={() => setIsMenuOpen(true)}
+          >
             <Bars3BottomRightIcon className="w-5 text-gray-600" />
           </button>
 
@@ -91,7 +96,8 @@ const Header = ({ cartCount }) => {
                     <button
                       aria-label="Close Menu"
                       title="Close Menu"
-                      onClick={() => setIsMenuOpen(false)}>
+                      onClick={() => setIsMenuOpen(false)}
+                    >
                       <XMarkIcon className="w-5 text-gray-600" />
                     </button>
                   </div>
@@ -107,7 +113,8 @@ const Header = ({ cartCount }) => {
                           isActive
                             ? "text-red-500 font-semibold"
                             : "text-gray-700"
-                        }>
+                        }
+                      >
                         Home
                       </NavLink>
                     </li>
@@ -118,7 +125,8 @@ const Header = ({ cartCount }) => {
                           isActive
                             ? "text-red-500 font-semibold"
                             : "text-gray-700"
-                        }>
+                        }
+                      >
                         Books
                       </NavLink>
                     </li>
@@ -129,7 +137,8 @@ const Header = ({ cartCount }) => {
                           isActive
                             ? "text-red-500 font-semibold"
                             : "text-gray-700"
-                        }>
+                        }
+                      >
                         About
                       </NavLink>
                     </li>
