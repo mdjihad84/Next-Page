@@ -6,7 +6,7 @@ import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 const Books = () => {
   const { books } = useLoaderData();
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 5;
+  const itemsPerPage = 8;
 
   const navigation = useNavigation();
   if (navigation.state === "loading") {
@@ -37,11 +37,12 @@ const Books = () => {
       </div>
 
       {/* Pagination Controls */}
-      <div className="flex justify-center items-center space-x-2 my-4">
+      <div className="flex justify-center items-center space-x-2 my-4 mb-10">
         <button
           onClick={() => handlePageChange(currentPage - 1)}
           disabled={currentPage === 1}
-          className="px-4 py-2 bg-gray-300 hover:bg-gray-400 rounded disabled:opacity-50">
+          className="px-4 py-2 bg-gray-300 hover:bg-gray-400 rounded disabled:opacity-50"
+        >
           Previous
         </button>
         {[...Array(totalPages)].map((_, index) => (
@@ -52,14 +53,16 @@ const Books = () => {
               currentPage === index + 1
                 ? "bg-blue-500 text-white"
                 : "bg-gray-300 hover:bg-gray-400"
-            }`}>
+            }`}
+          >
             {index + 1}
           </button>
         ))}
         <button
           onClick={() => handlePageChange(currentPage + 1)}
           disabled={currentPage === totalPages}
-          className="px-4 py-2 bg-gray-300 hover:bg-gray-400 rounded disabled:opacity-50">
+          className="px-4 py-2 bg-gray-300 hover:bg-gray-400 rounded disabled:opacity-50"
+        >
           Next
         </button>
       </div>

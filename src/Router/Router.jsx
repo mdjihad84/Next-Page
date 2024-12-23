@@ -7,6 +7,7 @@ import BookInfo from "../Component/BookInfo/BookInfo";
 import About from "../Component/About/About";
 import Cart from "../Component/Cart/Cart";
 import Login from "../Component/Login/Login";
+import Register from "../Component/Register/Register";
 
 export const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ export const router = createBrowserRouter([
       {
         path: "login",
         element: <Login></Login>,
+      },
+      {
+        path: "register",
+        element: <Register></Register>,
       },
     ],
   },

@@ -44,19 +44,6 @@ const Header = ({ cartCount }) => {
           </li>
           <li>
             <NavLink
-              to="/cart"
-              className={({ isActive }) =>
-                isActive ? "text-red-500 font-semibold" : "text-gray-700"
-              }
-            >
-              <i className="fa-solid fa-cart-shopping"></i>
-              <div className="badge badge-primary badge-lg mr-1 text-white">
-                {cartCount}
-              </div>
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
               to="/about"
               className={({ isActive }) =>
                 isActive ? "text-red-500 font-semibold" : "text-gray-700"
@@ -73,6 +60,29 @@ const Header = ({ cartCount }) => {
               }
             >
               Login
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/Register"
+              className={({ isActive }) =>
+                isActive ? "text-red-500 font-semibold" : "text-gray-700"
+              }
+            >
+              Register
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/Cart"
+              className={({ isActive }) =>
+                isActive ? "text-red-500 font-semibold" : "text-gray-700"
+              }
+            >
+              <i className="fa-solid fa-cart-shopping"></i>
+              <div className="badge badge-primary badge-lg mr-1 text-white">
+                {cartCount}
+              </div>
             </NavLink>
           </li>
         </ul>
@@ -162,6 +172,33 @@ const Header = ({ cartCount }) => {
                         }
                       >
                         Login
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink
+                        to="/Register"
+                        className={({ isActive }) =>
+                          isActive
+                            ? "text-red-500 font-semibold"
+                            : "text-gray-700"
+                        }
+                      >
+                        Register
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink
+                        to="/Cart"
+                        className={({ isActive }) =>
+                          isActive
+                            ? "text-red-500 font-semibold"
+                            : "text-gray-700"
+                        }
+                      >
+                        <i className="fa-solid fa-cart-shopping"></i>
+                        <div className="badge badge-primary badge-lg mr-1 text-white">
+                          {cartCount}
+                        </div>
                       </NavLink>
                     </li>
                   </ul>

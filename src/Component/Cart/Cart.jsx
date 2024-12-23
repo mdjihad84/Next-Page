@@ -8,21 +8,18 @@ import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import { Helmet } from "react-helmet-async";
 
 const Cart = () => {
-  // Fetch the books data from loader
   const bookData = useLoaderData();
+  const { cart = [], removeFromCart } = useOutletContext();
 
-  // Get the cart items (array of `isbn13` values) from context
-  const { cart, removeFromCart } = useOutletContext();
-
-  // Filter books from `bookData` based on `isbn13` in the cart
-  const booksInCart = cart.map((item) =>
-    bookData.books.find((book) => book.isbn13 === item)
-  );
+  const booksInCart = cart
+    .map((item) => bookData?.books?.find((book) => book.isbn13 === item))
+    .filter((book) => book !== undefined);
 
   const navigation = useNavigation();
   if (navigation.state === "loading") {
-    return <LoadingSpinner></LoadingSpinner>;
+    return <LoadingSpinner />;
   }
+
   return (
     <>
       <Helmet>
@@ -33,7 +30,7 @@ const Cart = () => {
           <div className="mt-5">
             <div className="bg-white">
               <table className="w-full text-left">
-                <thead className="">
+                <thead>
                   <tr className="border-b">
                     <th className="px-4 py-2 text-right">Product</th>
                     <th className="px-4 py-2"></th>
@@ -45,17 +42,17 @@ const Cart = () => {
                 <tbody>
                   {booksInCart.map((book, index) => (
                     <tr key={index} className="border-b">
-                      <td className=" px-4 py-2">
+                      <td className="px-4 py-2">
                         <img
-                          src={book.image}
+                          src={book.image || "fallback-image-url"}
                           className="w-[60px] h-[60px]"
-                          alt=""
+                          alt={book.title || "Book Image"}
                         />
                       </td>
-                      <td className=" px-4 py-2">{book.title}</td>
-                      <td className=" px-4 py-2">{book.price}</td>
-                      <td className=" px-4 py-2 hidden lg:block">1</td>
-                      <td className=" px-4 py-2 text-center">
+                      <td className="px-4 py-2">{book.title}</td>
+                      <td className="px-4 py-2">{book.price}</td>
+                      <td className="px-4 py-2 hidden lg:block mt-4">1</td>
+                      <td className="px-4 py-2 text-center">
                         <button
                           className="text-red-600"
                           onClick={() => removeFromCart(book.isbn13)}
@@ -73,7 +70,9 @@ const Cart = () => {
                     Return to shop
                   </h4>
                 </Link>
-                <div>Continue to Shipping</div>
+                <Link to="/">
+                  <div>Continue to Shopping</div>
+                </Link>
               </div>
             </div>
           </div>
@@ -87,12 +86,12 @@ const Cart = () => {
             <p className="text-lg font-semibold text-gray-700">
               Your cart is empty. Start adding some books!
             </p>
-            <a
-              href="/"
+            <Link
+              to="/"
               className="mt-4 px-6 py-3 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 transition-colors"
             >
               Browse Books
-            </a>
+            </Link>
           </div>
         )}
       </section>

@@ -17,7 +17,8 @@
     "react-helmet-async": "^2.0.5",
     "react-lottie": "^1.2.10",
     "react-router-dom": "^7.0.2",
-    "react-toastify": "^11.0.2"
+    "react-toastify": "^11.0.2",
+    "rsuite": "^5.76.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.15.0",
