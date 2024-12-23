@@ -6,6 +6,7 @@ import Books from "../Component/Books/Books";
 import BookInfo from "../Component/BookInfo/BookInfo";
 import About from "../Component/About/About";
 import Cart from "../Component/Cart/Cart";
+import Login from "../Component/Login/Login";
 
 export const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ export const router = createBrowserRouter([
       {
         path: "about",
         element: <About></About>,
+      },
+      {
+        path: "login",
+        element: <Login></Login>,
       },
     ],
   },

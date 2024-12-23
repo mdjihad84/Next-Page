@@ -49,10 +49,10 @@ const Header = ({ cartCount }) => {
                 isActive ? "text-red-500 font-semibold" : "text-gray-700"
               }
             >
-              <div className="badge badge-primary badge-lg mr-3 text-white">
+              <i className="fa-solid fa-cart-shopping"></i>
+              <div className="badge badge-primary badge-lg mr-1 text-white">
                 {cartCount}
               </div>
-              Cart
             </NavLink>
           </li>
           <li>
@@ -63,6 +63,16 @@ const Header = ({ cartCount }) => {
               }
             >
               About
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/Login"
+              className={({ isActive }) =>
+                isActive ? "text-red-500 font-semibold" : "text-gray-700"
+              }
+            >
+              Login
             </NavLink>
           </li>
         </ul>
@@ -140,6 +150,18 @@ const Header = ({ cartCount }) => {
                         }
                       >
                         About
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink
+                        to="/Login"
+                        className={({ isActive }) =>
+                          isActive
+                            ? "text-red-500 font-semibold"
+                            : "text-gray-700"
+                        }
+                      >
+                        Login
                       </NavLink>
                     </li>
                   </ul>
