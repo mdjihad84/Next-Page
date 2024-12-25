@@ -1,9 +1,9 @@
 import { Outlet, useNavigation } from "react-router-dom";
 import Header from "./Component/Header/Header";
 import Footer from "./Component/Footer/Footer";
-import LoadingSpinner from "./Component/LoadingSpinner/LoadingSpinner";
 import { ToastContainer } from "react-toastify";
 import { useEffect, useState } from "react";
+import LoadingSpinner from "./Component/LoadingSpinner/LoadingSpinner";
 
 const App = () => {
   // Initialize cart state
