@@ -5,7 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useState } from "react";
 
-const Login = () => {
+const Register = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -32,7 +32,6 @@ const Login = () => {
   const handleRegister = (e) => {
     e.preventDefault();
 
-    // Destructure formData
     const { name, email, password, confirmPassword } = formData;
 
     // Basic validation
@@ -57,6 +56,14 @@ const Login = () => {
       position: "top-center",
       autoClose: 3000,
     });
+
+    // Clear form (Optional)
+    setFormData({
+      name: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    });
   };
 
   return (
@@ -64,16 +71,21 @@ const Login = () => {
       <Helmet>
         <title>Next-Page | Register</title>
       </Helmet>
-      <div className="min-h-screen flex">
+      <div className="min-h-screen flex flex-col lg:flex-row">
         {/* Left Section - Lottie Animation */}
-        <div className="w-1/2 flex justify-center items-center bg-gradient-to-r">
-          <Lottie options={defaultOptions} height={400} width={400} />
+        <div className="w-full lg:w-1/2 flex justify-center items-center p-4">
+          <Lottie
+            options={defaultOptions}
+            height={300}
+            width={300}
+            className="md:h-96 md:w-96"
+          />
         </div>
 
         {/* Right Section - Form */}
-        <div className="flex-1 flex items-center justify-center border mr-10 p-10 my-16">
+        <div className="flex-1 flex items-center justify-center p-8">
           <div className="max-w-md w-full">
-            <h1 className="text-4xl font-bold text-gray-800 mb-6 text-center">
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6 text-center">
               Register
             </h1>
             <p className="text-center text-gray-500 mb-8">
@@ -92,6 +104,7 @@ const Login = () => {
                   onChange={handleChange}
                   placeholder="Enter your name"
                   className="w-full px-4 py-3 bg-gray-100 rounded-lg border focus:ring-2 focus:ring-blue-400 outline-none"
+                  aria-label="Name"
                 />
               </div>
               {/* Email Input */}
@@ -106,6 +119,7 @@ const Login = () => {
                   onChange={handleChange}
                   placeholder="Enter your email"
                   className="w-full px-4 py-3 bg-gray-100 rounded-lg border focus:ring-2 focus:ring-blue-400 outline-none"
+                  aria-label="Email"
                 />
               </div>
               {/* Password Input */}
@@ -120,6 +134,7 @@ const Login = () => {
                   onChange={handleChange}
                   placeholder="Enter your password"
                   className="w-full px-4 py-3 bg-gray-100 rounded-lg border focus:ring-2 focus:ring-blue-400 outline-none"
+                  aria-label="Password"
                 />
               </div>
               {/* Confirm Password Input */}
@@ -134,6 +149,7 @@ const Login = () => {
                   onChange={handleChange}
                   placeholder="Confirm your password"
                   className="w-full px-4 py-3 bg-gray-100 rounded-lg border focus:ring-2 focus:ring-blue-400 outline-none"
+                  aria-label="Confirm Password"
                 />
               </div>
               {/* Register Button */}
@@ -160,4 +176,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;

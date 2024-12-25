@@ -4,9 +4,11 @@ import WorldBook3 from "../../Images/WorldBook3.png";
 
 const Services = () => {
   return (
-    <div className="my-10">
+    <div id="Services" className="my-10">
       <div>
-        <h2 className="text-5xl font-bold text-center my-20">Our Services</h2>
+        <h2 className="text-[30px] lg:text-5xl font-bold text-center my-20">
+          Our Services
+        </h2>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 justify-items-center">
         <div className="p-4 rounded-lg w-[285px] text-center shadow-md hover:scale-105 transition-transform duration-300">

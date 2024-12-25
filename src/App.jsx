@@ -28,7 +28,7 @@ const App = () => {
       alert("Item is already added to the cart!");
     } else {
       setCart((prevCart) => [...prevCart, item]);
-      alert("Item added to the cart successfully!");
+      // alert("Item added to the cart successfully!");
     }
   };
 
@@ -36,7 +36,7 @@ const App = () => {
   const removeFromCart = (itemId) => {
     const updatedCart = cart.filter((item) => item !== itemId);
     setCart(updatedCart); // Update state
-    alert("removed successfully!");
+    // alert("removed successfully!");
   };
 
   const navigation = useNavigation();

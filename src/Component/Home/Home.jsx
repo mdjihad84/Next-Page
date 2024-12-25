@@ -1,17 +1,31 @@
 import React from "react";
 import Hero from "../Home/Hero";
+import About from "../Home/About";
 import Services from "../Home/Services";
 import Popular from "../Home/Popular";
-import Contact from "../Home/Contact";
+import { Helmet } from "react-helmet-async";
+import { useNavigation } from "react-router-dom";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 const Home = () => {
+  const navigation = useNavigation();
+
+  if (navigation.state === "loading") {
+    return <LoadingSpinner />;
+  }
+
   return (
-    <div className="p-8">
-      <Hero></Hero>
-      <Services></Services>
-      <Popular></Popular>
-      <Contact></Contact>
-    </div>
+    <>
+      <Helmet>
+        <title>Next-Page | Home</title>
+      </Helmet>
+      <div className="p-4 lg:p-8">
+        <Hero />
+        <About />
+        <Services />
+        <Popular />
+      </div>
+    </>
   );
 };
 
