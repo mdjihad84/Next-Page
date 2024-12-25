@@ -49,7 +49,9 @@ const Cart = () => {
                           alt={book.title || "Book Image"}
                         />
                       </td>
-                      <td className="px-4 py-2">{book.title}</td>
+                      <td className="px-4 py-2 text-[13px] lg:text-[16px]">
+                        {book.title}
+                      </td>
                       <td className="px-4 py-2">{book.price}</td>
                       <td className="px-4 py-2 hidden lg:block mt-4">1</td>
                       <td className="px-4 py-2 text-center">

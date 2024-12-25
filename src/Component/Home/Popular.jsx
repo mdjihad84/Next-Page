@@ -6,7 +6,7 @@ const Popular = () => {
   return (
     <section id="Popular" className="px-12 md:py-20">
       <div>
-        <h2 className="text-[30px] lg:text-5xl font-bold text-center my-20">
+        <h2 className="text-[30px] lg:text-5xl font-bold text-center my-16 lg:my-20">
           Popular Book
         </h2>
       </div>
@@ -14,7 +14,7 @@ const Popular = () => {
         {/* Text Content */}
         <div className="md:w-1/2 text-center md:text-left">
           <h1 className="text-xl lg:w-[480px] lg:text-5xl md:text-5xl font-bold text-gray-800 leading-tight">
-            Our best and popular selling toys
+            Our best and popular selling books
           </h1>
           <p className="lg:w-[501px] my-6 text-gray-600 text-[16px] lg:text-lg leading-8">
             Sed ut perspiciatis unde omnis iste natus error sit voluptatem
