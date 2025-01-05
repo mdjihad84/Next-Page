@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import Lottie from "react-lottie";
-import animationData from "../../assets/lottie.json";
+import animationData from "../../assets/Animation.json";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useState } from "react";
@@ -81,7 +81,7 @@ const Register = () => {
         <div className="flex-1 flex items-center justify-center p-8">
           <div className="max-w-md w-full">
             <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6 text-center">
-              Register
+              Register now
             </h1>
             <p className="text-center text-gray-500 mb-8">
               Register to access your account and explore our services.
@@ -150,16 +150,19 @@ const Register = () => {
               {/* Register Button */}
               <button
                 onClick={handleRegister}
-                className="w-full py-3 bg-yellow-400 text-white rounded-lg font-bold hover:bg-yellow-500 transition duration-300 shadow-md"
+                className="w-full py-3 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-800 transition duration-300 shadow-md"
               >
                 Register
               </button>
             </form>
             {/* Forgot Password */}
             <p className="text-center text-gray-500 mt-4 text-sm">
-              Forgot your password?{" "}
-              <a href="#" className="text-blue-600 font-medium hover:underline">
-                Reset it here
+              Already have an account?{" "}
+              <a
+                href="/Login"
+                className="text-blue-600 font-medium hover:underline"
+              >
+                Login
               </a>
             </p>
           </div>

@@ -24,7 +24,7 @@ const Popular = () => {
           <div className="mt-6">
             <a
               href="/books"
-              className="bg-yellow-400 text-white px-10 py-3 rounded-lg hover:bg-yellow-500 transition"
+              className="bg-blue-600 text-white px-10 py-3 rounded-lg hover:bg-blue-800 transition"
             >
               See More
             </a>

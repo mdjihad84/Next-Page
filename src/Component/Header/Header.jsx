@@ -26,7 +26,7 @@ const Header = ({ cartCount }) => {
             <NavLink
               to="/"
               className={({ isActive }) =>
-                isActive ? "text-red-500 font-semibold" : "text-gray-700"
+                isActive ? "text-blue-600 font-semibold" : "text-gray-700"
               }
             >
               Home
@@ -36,7 +36,7 @@ const Header = ({ cartCount }) => {
             <NavLink
               to="/books"
               className={({ isActive }) =>
-                isActive ? "text-red-500 font-semibold" : "text-gray-700"
+                isActive ? "text-blue-600  font-semibold" : "text-gray-700"
               }
             >
               Books
@@ -46,7 +46,7 @@ const Header = ({ cartCount }) => {
             <NavLink
               to="/about"
               className={({ isActive }) =>
-                isActive ? "text-red-500 font-semibold" : "text-gray-700"
+                isActive ? "text-blue-600 font-semibold" : "text-gray-700"
               }
             >
               About
@@ -56,7 +56,7 @@ const Header = ({ cartCount }) => {
             <NavLink
               to="/Login"
               className={({ isActive }) =>
-                isActive ? "text-red-500 font-semibold" : "text-gray-700"
+                isActive ? "text-blue-600 font-semibold" : "text-gray-700"
               }
             >
               Login
@@ -64,19 +64,9 @@ const Header = ({ cartCount }) => {
           </li>
           <li>
             <NavLink
-              to="/Register"
-              className={({ isActive }) =>
-                isActive ? "text-red-500 font-semibold" : "text-gray-700"
-              }
-            >
-              Register
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
               to="/Cart"
               className={({ isActive }) =>
-                isActive ? "text-red-500 font-semibold" : "text-gray-700"
+                isActive ? "text-blue-600 font-semibold" : "text-gray-700"
               }
             >
               <i className="fa-solid fa-cart-shopping"></i>
@@ -131,7 +121,7 @@ const Header = ({ cartCount }) => {
                         to="/"
                         className={({ isActive }) =>
                           isActive
-                            ? "text-red-500 font-semibold"
+                            ? "text-blue-600 font-semibold"
                             : "text-gray-700"
                         }
                       >
@@ -143,7 +133,7 @@ const Header = ({ cartCount }) => {
                         to="/books"
                         className={({ isActive }) =>
                           isActive
-                            ? "text-red-500 font-semibold"
+                            ? "text-blue-600 font-semibold"
                             : "text-gray-700"
                         }
                       >
@@ -155,7 +145,7 @@ const Header = ({ cartCount }) => {
                         to="/about"
                         className={({ isActive }) =>
                           isActive
-                            ? "text-red-500 font-semibold"
+                            ? "text-blue-600 font-semibold"
                             : "text-gray-700"
                         }
                       >
@@ -167,7 +157,7 @@ const Header = ({ cartCount }) => {
                         to="/Login"
                         className={({ isActive }) =>
                           isActive
-                            ? "text-red-500 font-semibold"
+                            ? "text-blue-600 font-semibold"
                             : "text-gray-700"
                         }
                       >
@@ -176,22 +166,10 @@ const Header = ({ cartCount }) => {
                     </li>
                     <li>
                       <NavLink
-                        to="/Register"
-                        className={({ isActive }) =>
-                          isActive
-                            ? "text-red-500 font-semibold"
-                            : "text-gray-700"
-                        }
-                      >
-                        Register
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink
                         to="/Cart"
                         className={({ isActive }) =>
                           isActive
-                            ? "text-red-500 font-semibold"
+                            ? "text-blue-600 font-semibold"
                             : "text-gray-700"
                         }
                       >

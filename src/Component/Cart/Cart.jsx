@@ -43,11 +43,19 @@ const Cart = () => {
                   {booksInCart.map((book, index) => (
                     <tr key={index} className="border-b">
                       <td className="px-4 py-2">
-                        <img
-                          src={book.image || "fallback-image-url"}
-                          className="w-[60px] h-[60px]"
-                          alt={book.title || "Book Image"}
-                        />
+                        <div className="">
+                          <div
+                            className="text-end block lg:hidden"
+                            onClick={() => removeFromCart(book.isbn13)}
+                          >
+                            <i className="fa-solid fa-xmark"></i>
+                          </div>
+                          <img
+                            src={book.image || "fallback-image-url"}
+                            className="w-[60px] h-[60px]"
+                            alt={book.title || "Book Image"}
+                          />
+                        </div>
                       </td>
                       <td className="px-4 py-2 text-[13px] lg:text-[16px]">
                         {book.title}
@@ -56,7 +64,7 @@ const Cart = () => {
                       <td className="px-4 py-2 hidden lg:block mt-4">1</td>
                       <td className="px-4 py-2 text-center">
                         <button
-                          className="text-red-600"
+                          className="text-blue-600 hidden lg:block"
                           onClick={() => removeFromCart(book.isbn13)}
                         >
                           Remove
@@ -89,7 +97,7 @@ const Cart = () => {
               Your cart is empty. Start adding some books!
             </p>
             <Link
-              to="/"
+              to="/Books"
               className="mt-4 px-6 py-3 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 transition-colors"
             >
               Browse Books

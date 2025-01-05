@@ -47,24 +47,12 @@ const Login = () => {
         <div className="flex-1 flex items-center justify-center p-8">
           <div className="max-w-md w-full">
             <h1 className="text-4xl font-bold text-gray-800 mb-6 text-center">
-              Login
+              Login now
             </h1>
             <p className="text-center text-gray-500 mb-8">
               Login to access your account and explore our services.
             </p>
             <form onSubmit={handleLogin}>
-              {/* Name Input */}
-              <div className="mb-4">
-                <label className="block text-gray-700 font-medium mb-2">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Enter your name"
-                  className="w-full px-4 py-3 bg-gray-100 rounded-lg border focus:ring-2 focus:ring-blue-400 outline-none"
-                />
-              </div>
               {/* Email Input */}
               <div className="mb-4">
                 <label className="block text-gray-700 font-medium mb-2">
@@ -99,7 +87,7 @@ const Login = () => {
             </form>
             {/* Forgot Password */}
             <p className="text-center text-gray-500 mt-4 text-sm">
-              Forgot your password?{" "}
+              Dont’t Have An Account ?{" "}
               <a
                 href="/Register"
                 className="text-blue-600 font-medium hover:underline"

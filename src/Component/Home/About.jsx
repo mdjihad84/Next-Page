@@ -28,7 +28,7 @@ const About = () => {
           <div className="mt-4 py-6 lg:py-4">
             <a
               href="/books"
-              className="bg-yellow-400 text-white px-8 py-3 rounded-lg hover:bg-yellow-500 transition duration-300"
+              className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-800 transition duration-300"
             >
               Get Started
             </a>
