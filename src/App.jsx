@@ -2,7 +2,6 @@ import { Outlet, useNavigation } from "react-router-dom";
 import Header from "./Component/Header/Header";
 import Footer from "./Component/Footer/Footer";
 import LoadingSpinner from "./Component/LoadingSpinner/LoadingSpinner";
-import { ToastContainer } from "react-toastify";
 import { useEffect, useState } from "react";
 
 const App = () => {
@@ -27,6 +26,7 @@ const App = () => {
     if (cart.includes(item)) {
       alert("Item is already added to the cart!");
     } else {
+      // ... (Spread Operator)
       setCart((prevCart) => [...prevCart, item]);
       alert("Item added to the cart successfully!");
     }
@@ -51,7 +51,6 @@ const App = () => {
         <Outlet context={{ cart, addToCart, removeFromCart }} />
       </div>
       <Footer />
-      <ToastContainer />
     </>
   );
 };
