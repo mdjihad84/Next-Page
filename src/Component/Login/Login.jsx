@@ -1,8 +1,8 @@
 import { Helmet } from "react-helmet-async";
 import Lottie from "react-lottie";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import animationData from "../../assets/Animation.json";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import auth from "../../firebase.init";
 
 const Login = () => {
   const defaultOptions = {
@@ -13,23 +13,32 @@ const Login = () => {
       preserveAspectRatio: "xMidYMid slice",
     },
   };
+  const icons = [
+    {
+      href: "https://www.facebook.com/jahidulislam.jihad.773124/",
+      icon: "fa-facebook-f",
+    },
+    { href: "https://x.com/jahidul16956", icon: "fa-twitter" },
+    { href: "https://github.com/mdjihad84", icon: "fa-github" },
+  ];
 
   const handleLogin = (e) => {
     e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    // console.log(email, password);
 
-    // Example validation logic
-    const formData = new FormData(e.target);
-    const name = formData.get("name");
-    const email = formData.get("email");
-    const password = formData.get("password");
-
-    if (!name || !email || !password) {
-      toast.error("Please fill in all fields!");
-      return;
-    }
-
-    // Simulating a successful login
-    toast.success("Logged in successfully!");
+    signInWithEmailAndPassword(auth, email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        alert("user login  successfully");
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        console.log(errorMessage);
+        alert("wrong password");
+      });
   };
 
   return (
@@ -80,8 +89,7 @@ const Login = () => {
               {/* Login Button */}
               <button
                 type="submit"
-                className="w-full py-3 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-700 transition duration-300 shadow-md"
-              >
+                className="w-full py-3 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-700 transition duration-300 shadow-md">
                 Login
               </button>
             </form>
@@ -90,8 +98,7 @@ const Login = () => {
               Dont’t Have An Account ?{" "}
               <a
                 href="/Register"
-                className="text-blue-600 font-medium hover:underline"
-              >
+                className="text-blue-600 font-medium hover:underline">
                 Register
               </a>
             </p>
@@ -103,21 +110,13 @@ const Login = () => {
             </div>
             {/* Social Media Buttons */}
             <div className="flex justify-center space-x-4">
-              {[
-                {
-                  href: "https://www.facebook.com/jahidulislam.jihad.773124/",
-                  icon: "fa-facebook-f",
-                },
-                { href: "https://x.com/jahidul16956", icon: "fa-twitter" },
-                { href: "https://github.com/mdjihad84", icon: "fa-github" },
-              ].map((social, index) => (
+              {icons.map((social, index) => (
                 <a
                   key={index}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 bg-gray-100 hover:bg-blue-500 text-gray-600 hover:text-white rounded-full flex items-center justify-center transition duration-300 shadow-md"
-                >
+                  className="w-12 h-12 bg-gray-100 hover:bg-blue-500 text-gray-600 hover:text-white rounded-full flex items-center justify-center transition duration-300 shadow-md">
                   <i className={`fab ${social.icon} text-lg`}></i>
                 </a>
               ))}
