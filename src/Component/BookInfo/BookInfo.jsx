@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useLoaderData, useNavigation } from "react-router-dom";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
-// import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 const BookInfo = () => {
   const [fold, setFold] = useState(true);
@@ -40,7 +39,8 @@ const BookInfo = () => {
               <p className="text-gray-500">{desc.substring(0, 100)}.....</p>
               <span
                 className="cursor-pointer text-blue-600"
-                onClick={() => setFold(!fold)}>
+                onClick={() => setFold(!fold)}
+              >
                 Read More
               </span>
             </>
@@ -49,7 +49,8 @@ const BookInfo = () => {
               <p className="text-gray-900">{desc}</p>
               <span
                 className="cursor-pointer text-blue-600"
-                onClick={() => setFold(!fold)}>
+                onClick={() => setFold(!fold)}
+              >
                 Read Less
               </span>
             </>

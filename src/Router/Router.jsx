@@ -6,36 +6,46 @@ import Books from "../Component/Books/Books";
 import BookInfo from "../Component/BookInfo/BookInfo";
 import About from "../Component/About/About";
 import Cart from "../Component/Cart/Cart";
+import Login from "../Component/Login/Login";
+import Register from "../Component/Register/Register";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <App></App>,
-    errorElement: <ErrorPage></ErrorPage>,
+    element: <App />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
-        element: <Home></Home>,
+        element: <Home />,
       },
       {
         path: "books",
-        element: <Books></Books>,
+        element: <Books />,
         loader: () => fetch("https://api.itbook.store/1.0/new"),
       },
       {
         path: "book/:id",
-        element: <BookInfo></BookInfo>,
+        element: <BookInfo />,
         loader: ({ params }) =>
           fetch(`https://api.itbook.store/1.0/books/${params.id}`),
       },
       {
         path: "cart",
-        element: <Cart></Cart>,
+        element: <Cart />,
         loader: () => fetch("https://api.itbook.store/1.0/new"),
       },
       {
         path: "about",
-        element: <About></About>,
+        element: <About />,
+      },
+      {
+        path: "register",
+        element: <Register />,
+      },
+      {
+        path: "login",
+        element: <Login />,
       },
     ],
   },

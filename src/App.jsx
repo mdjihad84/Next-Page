@@ -28,7 +28,7 @@ const App = () => {
     } else {
       // ... (Spread Operator)
       setCart((prevCart) => [...prevCart, item]);
-      alert("Item added to the cart successfully!");
+      // alert("Item added to the cart successfully!");
     }
   };
 
@@ -36,10 +36,11 @@ const App = () => {
   const removeFromCart = (itemId) => {
     const updatedCart = cart.filter((item) => item !== itemId);
     setCart(updatedCart); // Update state
-    alert("removed successfully!");
+    // alert("removed successfully!");
   };
 
   const navigation = useNavigation();
+
   if (navigation.state === "loading") {
     return <LoadingSpinner></LoadingSpinner>;
   }

@@ -26,8 +26,9 @@ const Header = ({ cartCount }) => {
             <NavLink
               to="/"
               className={({ isActive }) =>
-                isActive ? "text-red-500 font-semibold" : "text-gray-700"
-              }>
+                isActive ? "text-blue-600 font-semibold" : "text-gray-700"
+              }
+            >
               Home
             </NavLink>
           </li>
@@ -35,30 +36,43 @@ const Header = ({ cartCount }) => {
             <NavLink
               to="/books"
               className={({ isActive }) =>
-                isActive ? "text-red-500 font-semibold" : "text-gray-700"
-              }>
+                isActive ? "text-blue-600  font-semibold" : "text-gray-700"
+              }
+            >
               Books
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/cart"
-              className={({ isActive }) =>
-                isActive ? "text-red-500 font-semibold" : "text-gray-700"
-              }>
-              <div className="badge badge-primary badge-lg mr-3 text-white">
-                {cartCount}
-              </div>
-              Cart
             </NavLink>
           </li>
           <li>
             <NavLink
               to="/about"
               className={({ isActive }) =>
-                isActive ? "text-red-500 font-semibold" : "text-gray-700"
-              }>
+                isActive ? "text-blue-600 font-semibold" : "text-gray-700"
+              }
+            >
               About
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/Login"
+              className={({ isActive }) =>
+                isActive ? "text-blue-600 font-semibold" : "text-gray-700"
+              }
+            >
+              Login
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/Cart"
+              className={({ isActive }) =>
+                isActive ? "text-blue-600 font-semibold" : "text-gray-700"
+              }
+            >
+              <i className="fa-solid fa-cart-shopping"></i>
+              <div className="badge badge-primary badge-lg mr-1 text-white">
+                {cartCount}
+              </div>
             </NavLink>
           </li>
         </ul>
@@ -69,7 +83,8 @@ const Header = ({ cartCount }) => {
           <button
             aria-label="Open Menu"
             title="Open Menu"
-            onClick={() => setIsMenuOpen(true)}>
+            onClick={() => setIsMenuOpen(true)}
+          >
             <Bars3BottomRightIcon className="w-5 text-gray-600" />
           </button>
 
@@ -91,7 +106,8 @@ const Header = ({ cartCount }) => {
                     <button
                       aria-label="Close Menu"
                       title="Close Menu"
-                      onClick={() => setIsMenuOpen(false)}>
+                      onClick={() => setIsMenuOpen(false)}
+                    >
                       <XMarkIcon className="w-5 text-gray-600" />
                     </button>
                   </div>
@@ -105,9 +121,10 @@ const Header = ({ cartCount }) => {
                         to="/"
                         className={({ isActive }) =>
                           isActive
-                            ? "text-red-500 font-semibold"
+                            ? "text-blue-600 font-semibold"
                             : "text-gray-700"
-                        }>
+                        }
+                      >
                         Home
                       </NavLink>
                     </li>
@@ -116,9 +133,10 @@ const Header = ({ cartCount }) => {
                         to="/books"
                         className={({ isActive }) =>
                           isActive
-                            ? "text-red-500 font-semibold"
+                            ? "text-blue-600 font-semibold"
                             : "text-gray-700"
-                        }>
+                        }
+                      >
                         Books
                       </NavLink>
                     </li>
@@ -127,10 +145,38 @@ const Header = ({ cartCount }) => {
                         to="/about"
                         className={({ isActive }) =>
                           isActive
-                            ? "text-red-500 font-semibold"
+                            ? "text-blue-600 font-semibold"
                             : "text-gray-700"
-                        }>
+                        }
+                      >
                         About
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink
+                        to="/Login"
+                        className={({ isActive }) =>
+                          isActive
+                            ? "text-blue-600 font-semibold"
+                            : "text-gray-700"
+                        }
+                      >
+                        Login
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink
+                        to="/Cart"
+                        className={({ isActive }) =>
+                          isActive
+                            ? "text-blue-600 font-semibold"
+                            : "text-gray-700"
+                        }
+                      >
+                        <i className="fa-solid fa-cart-shopping"></i>
+                        <div className="badge badge-primary badge-lg mr-1 text-white">
+                          {cartCount}
+                        </div>
                       </NavLink>
                     </li>
                   </ul>
