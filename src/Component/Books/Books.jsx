@@ -30,7 +30,7 @@ const Books = () => {
   return (
     <div className="mt-2">
       {/* Books Grid */}
-      <div className="grid lg:grid-cols-4 sm:grid-cols-2 lg:gap-6 lg:mb-8 p-6 mx-auto md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+      <div className="grid lg:grid-cols-4 sm:grid-cols-2 lg:gap-6 lg:mb-8 p-8 mx-auto md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
         {currentBooks.map((book) => (
           <Book book={book} key={book.isbn13} />
         ))}

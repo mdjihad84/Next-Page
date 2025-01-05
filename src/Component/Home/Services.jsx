@@ -26,7 +26,8 @@ const Services = () => {
             <i className="text-yellow-400 fa-solid fa-star"></i>
           </div>
           <p className="text-gray-600">
-            Enjoy free shipping on all orders within the country.
+            The Books seller fascinating how languages influence focusing on
+            clarity research.
           </p>
         </div>
         <div className="p-4 rounded-lg w-[285px] text-center shadow-md hover:scale-105 transition-transform duration-300">
@@ -44,7 +45,8 @@ const Services = () => {
             <i className="text-yellow-400  fa-solid fa-star"></i>
           </div>
           <p className="text-gray-600">
-            Enjoy free shipping on all orders within the country.
+            The most important Book fascinating languages influence one Writing
+            Tools.
           </p>
         </div>
         <div className="p-4 rounded-lg w-[285px] text-center shadow-md hover:scale-105 transition-transform duration-300">
@@ -62,7 +64,8 @@ const Services = () => {
             <i className="text-yellow-400 fa-solid fa-star"></i>
           </div>
           <p className="text-gray-600">
-            Enjoy free shipping on all orders within the country.
+            A Book About Fonts" the history and psychology of fonts and
+            typography.
           </p>
         </div>
         <div className="p-4 rounded-lg w-[285px] text-center shadow-md hover:scale-105 transition-transform duration-300">
@@ -80,7 +83,8 @@ const Services = () => {
             <i className="text-yellow-400 fa-solid fa-star"></i>
           </div>
           <p className="text-gray-600">
-            Enjoy free shipping on all orders within the country.
+            A Book fascinating look at how languages evolve and influence one
+            another.
           </p>
         </div>
       </div>
