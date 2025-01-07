@@ -1,8 +1,8 @@
 import { Helmet } from "react-helmet-async";
 import Lottie from "react-lottie";
 import animationData from "../../assets/Animation.json";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import auth from "../../firebase.init";
-import { createUserWithEmailAndPassword } from "firebase/auth";
 
 const Register = () => {
   const defaultOptions = {
@@ -14,22 +14,52 @@ const Register = () => {
     },
   };
 
+  // const handleRegister = (e) => {
+  //   e.preventDefault();
+  //   const email = e.target.email.value;
+  //   const password = e.target.password.value;
+  //   // console.log(email, password);
+
+  //   createUserWithEmailAndPassword(auth, email, password)
+  //     .then((result) => {
+  //       const user = result.user;
+  //       console.log(user);
+  //       alert("user register  successfully");
+  //     })
+  //     .catch((error) => {
+  //       const errorMessage = error.message;
+  //       console.log(errorMessage);
+  //       alert("email already in use");
+  //     });
+  // };
+
   const handleRegister = (e) => {
     e.preventDefault();
+    const name = e.target.name.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
     // console.log(email, password);
-
     createUserWithEmailAndPassword(auth, email, password)
       .then((result) => {
         const user = result.user;
+        updateProfile(user, {
+          displayName: name,
+        });
+        // .then(() => {
+        //   // Profile updated!
+        //   // ...
+        // })
+        // .catch((error) => {
+        //   const errorMessage = error.message;
+        //   console.log("Profile updated", errorMessage);
+        // });
         console.log(user);
         alert("user register  successfully");
       })
       .catch((error) => {
         const errorMessage = error.message;
         console.log(errorMessage);
-        alert("email already in use");
+        alert("auth/email-already-in-use");
       });
   };
 
@@ -54,7 +84,7 @@ const Register = () => {
               Register to access your account and explore our services.
             </p>
             <form onSubmit={handleRegister}>
-              {/* Name Input
+              {/* Name Input */}
               <div className="mb-4">
                 <label className="block text-gray-700 font-medium mb-2">
                   Name
@@ -62,11 +92,12 @@ const Register = () => {
                 <input
                   type="text"
                   name="name"
+                  required
                   placeholder="Enter your name"
                   className="w-full px-4 py-3 bg-gray-100 rounded-lg border focus:ring-2 focus:ring-blue-400 outline-none"
                   aria-label="Name"
                 />
-              </div> */}
+              </div>
               {/* Email Input */}
               <div className="mb-4">
                 <label className="block text-gray-700 font-medium mb-2">
@@ -75,6 +106,7 @@ const Register = () => {
                 <input
                   type="email"
                   name="email"
+                  required
                   placeholder="Enter your email"
                   className="w-full px-4 py-3 bg-gray-100 rounded-lg border focus:ring-2 focus:ring-blue-400 outline-none"
                   aria-label="Email"
@@ -88,6 +120,7 @@ const Register = () => {
                 <input
                   type="password"
                   name="password"
+                  required
                   placeholder="Enter your password"
                   className="w-full px-4 py-3 bg-gray-100 rounded-lg border focus:ring-2 focus:ring-blue-400 outline-none"
                   aria-label="Password"
